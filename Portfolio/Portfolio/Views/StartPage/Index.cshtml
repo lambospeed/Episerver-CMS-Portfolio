@@ -1,0 +1,7 @@
+﻿
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model Portfolio.Models.ViewModels.DefaultPageViewModel<Portfolio.Models.Pages.StartPage>
+
+@Html.PropertyFor(m => m.CurrentPage.MainBody)
