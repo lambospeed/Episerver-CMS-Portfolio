@@ -1,2 +1,2 @@
 # Portfolio
-En tjänsten där en inloggad användare kan skapa CV (påminner Linkedin)
+En tjänst där en inloggad användare kan skapa CV (påminner Linkedin)
