@@ -1,0 +1,98 @@
+﻿@using EPiServer.Core
+@model Portfolio.Models.ViewModels.PortfolioPageViewModel
+
+@{ Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
+
+@{Html.RenderPartial("Breadcrumbs");}
+
+
+@if (Model.HeaderFolderIsSet)
+{
+
+    foreach (var h in Model.HeaderPart)
+    {
+        ContentReference currentheaderRef = ((IContent)h).ContentLink;
+
+        if (Model.HasHeaderPublishAccess)
+        {
+            @Html.ActionLink("x", "DeleteHeader", new { headerReference = currentheaderRef })
+        }
+        Html.RenderPartial("AddedHeader", h);
+    }
+
+
+    if (!Model.HeaderPart.Any() && Model.HasHeaderPublishAccess)
+    {
+        using (Html.BeginForm("CreateHeader", null, FormMethod.Post))
+        {
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        @Html.TextBox("FullName", null, htmlAttributes: new { @class = "form-control", placeholder = "Full Name" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBox("Headline", null, htmlAttributes: new { @class = "form-control", placeholder = "Headline" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        @Html.TextBox("Address", null, htmlAttributes: new { @class = "form-control", placeholder = "Address" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBox("LineOfBusiness", null, htmlAttributes: new { @class = "form-control", placeholder = "Line Of Business" })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    @Html.TextArea("Summary", null, htmlAttributes: new { @class = "form-control", placeholder = "Summary" })
+                </div>
+            </div>
+
+           
+            <button type="submit" class="btn btn-default">Add</button>
+        }
+    }
+
+}
+<br />
+@if (Model.SkillFolderIsSet)
+{
+    <div class="row">
+        <div class="col-md-12">
+            @foreach (var s in Model.SkillList)
+            {
+                <div class="skill">
+                    @{
+                        ContentReference currentskillRef = ((IContent)s).ContentLink;
+
+                        if (Model.HasSkillPublishAccess)
+                        {
+                            @Html.ActionLink("x", "DeleteSkill", new { skillReference = currentskillRef })
+                        }
+                        Html.RenderPartial("AddedSkill", s);
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    if (Model.HasSkillPublishAccess)
+    {
+    using (Html.BeginForm("CreateSkill", null, FormMethod.Post))
+    {
+        <form class="form-inline">
+            <div class="form-group">
+                @Html.TextBox("Skill", null, htmlAttributes: new { @class = "form-control", placeholder = "Skill" })
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+        }
+    }
+}
+
+
+
+
+
+
+    @*@Html.PropertyFor(m => m.CurrentPage.MyPresentation)*@
