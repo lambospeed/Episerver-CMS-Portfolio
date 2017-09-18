@@ -250,23 +250,33 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Business\ContentExtensions.cs" />
+    <Compile Include="Business\DependencyResolverInitialization.cs" />
     <Compile Include="Business\ExtensionMethods.cs" />
+    <Compile Include="Business\Header\HeaderHandler.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
+    <Compile Include="Business\Skills\IWritableContent.cs" />
+    <Compile Include="Business\Skills\SkillHandler.cs" />
+    <Compile Include="Business\Skills\SkillInitialization.cs" />
+    <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\PortfolioPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Models\Blocks\AddedHeader.cs" />
+    <Compile Include="Models\Blocks\AddedSkill.cs" />
+    <Compile Include="Models\Pages\PortfolioPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\ViewModels\DefaultPageViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\PortfolioPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
   </ItemGroup>
@@ -301,6 +311,9 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Static\js\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
+    <Content Include="Views\PortfolioPage\Index.cshtml" />
+    <Content Include="Views\Shared\AddedHeader.cshtml" />
+    <Content Include="Views\Shared\AddedSkill.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

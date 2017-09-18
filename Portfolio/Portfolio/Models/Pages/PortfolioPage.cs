@@ -14,12 +14,7 @@ namespace Portfolio.Models.Pages
     [ContentType(DisplayName = "Portfolio Page", GUID = "81fedefb-c622-4179-8767-a121bbb3e377", Description = "")]
     public class PortfolioPage : SitePageData
     {
-        [Display(
-           Name = "My Presentation Block",
-           GroupName = SystemTabNames.Content,
-           Order = 20)]
-        public virtual PresentationBlock MyPresentation { get; set; }
-
+       
         [UIHint(UIHint.BlockFolder)]
         [Display(
            Name = "Skills folder",
