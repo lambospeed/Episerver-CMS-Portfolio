@@ -1,2 +1,2 @@
 # Portfolio
-En tjänst där en inloggad användare kan skapa CV (påminner Linkedin)
+Website where inlogged user can create and edit CV (something like Linkedin). Episerver CMS.
